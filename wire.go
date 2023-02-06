@@ -11,7 +11,7 @@ import (
 )
 
 func InitializeService() *app.App {
-	wire.Build(app.NewApp, controller.NewController, logger.NewZapLogger, usecases.NewPersistence)
+	wire.Build(app.NewApp, controller.NewController, logger.NewZapLogger, usecases.NewMongoConnection)
 	return &app.App{}
 }
 */

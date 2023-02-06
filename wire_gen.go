@@ -16,8 +16,8 @@ import (
 // Injectors from wire.go:
 
 func InitializeService() *app.App {
-	persistence := usecases.NewPersistence()
-	controllerController := controller.NewController(persistence)
+	repository := usecases.NewMongoConnection()
+	controllerController := controller.NewController(repository)
 	zapLogger := logger.NewZapLogger()
 	appApp := app.NewApp(controllerController, zapLogger)
 	return appApp
