@@ -3,8 +3,6 @@ package db
 import (
 	"errors"
 	"fmt"
-
-	uuid "github.com/gofrs/uuid"
 )
 
 var (
@@ -13,9 +11,8 @@ var (
 
 // Account model example
 type Account struct {
-	ID   int       `json:"id" bson:"id"`
-	Name string    `json:"name" bson:"name"`
-	UUID uuid.UUID `json:"uuid" format:"uuid" bson:"uuid"`
+	ID   int    `json:"id" bson:"id"`
+	Name string `json:"name" bson:"name"`
 }
 
 func (a Account) String() string {

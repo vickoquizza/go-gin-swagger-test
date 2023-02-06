@@ -69,7 +69,7 @@ func (a *App) Start() {
 	r := gin.Default()
 
 	r.Use(otelgin.Middleware("gin-swagger-service"))
-	// Using the ginzap middleware to use zap as the logger of gin instad the deffault logger
+	// Using the ginzap middleware to use zap as the logger of gin instead the deffault logger
 	r.Use(ginzap.Ginzap(a.Logger.Adapter, time.RFC3339, true))
 	r.Use(ginzap.RecoveryWithZap(a.Logger.Adapter, true))
 
@@ -120,7 +120,7 @@ func initTracer(w io.Writer) (*trace.TracerProvider, error) {
 	}
 
 	tp := trace.NewTracerProvider(
-		trace.WithSampler(trace.AlwaysSample()),
+		trace.WithSampler(trace.NeverSample()),
 		trace.WithBatcher(exp),
 		trace.WithResource(newResource()),
 	)
